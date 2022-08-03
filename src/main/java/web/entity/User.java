@@ -53,6 +53,13 @@ public class User implements UserDetails {
         this.password = password;
         this.roles = roleSet;
     }
+    public User(String name, String lastname, int age, String email, String password) {
+        this.name = name;
+        this.lastname = lastname;
+        this.age = age;
+        this.email = email;
+        this.password = password;
+    }
 
     public Long getId() {
         return id;
@@ -101,7 +108,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return name;
+        return getEmail();
     }
 
     public void setPassword(String password) {

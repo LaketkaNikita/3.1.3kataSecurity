@@ -8,6 +8,7 @@ import web.entity.User;
 import web.repository.RoleDao;
 import web.repository.UserRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,19 +59,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Set<Role> getAllRoles() {
-        return roleDao.getAllRoles();
+    public Optional<User> findByLogin(String login) {
+        return userRepository.findByLogin(login);
     }
 
-    @Override
-    public Role getRoleByName(String name) {
-        return roleDao.getRoleByName(name);
-    }
-
-    @Override
-    public Set<Role> getRolesByNames(String[] names) {
-        return roleDao.getRolesByNames(names);
-    }
 
 
 }

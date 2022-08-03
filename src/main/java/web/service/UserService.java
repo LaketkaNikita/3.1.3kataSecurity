@@ -3,6 +3,7 @@ package web.service;
 import web.entity.Role;
 import web.entity.User;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public interface UserService {
@@ -11,7 +12,6 @@ public interface UserService {
     void createUser(User user);
     void updateUser(User user);
     void delete(long id);
-    Set<Role> getAllRoles();
-    Role getRoleByName(String name);
-    Set<Role> getRolesByNames(String[] names);
+    Optional<User> findByLogin(String login);
+
 }
